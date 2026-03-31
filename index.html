@@ -1,1 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>✦ ANGEL NUMBER DECODER · SYNCHRONICITY GUIDE ✦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: radial-gradient(ellipse at 30% 20%, #0f0e1a 0%, #131125 40%, #0a0818 100%);
+            min-height: 100vh;
+            padding: 20px 15px;
+            color: #e8e4ff;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* Celestial Background */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .glowing-orb {
+            position: absolute;
+            top: 20%;
+            right: 5%;
+            width: 60vmin;
+            height: 60vmin;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,215,0,0.15), rgba(255,200,100,0.05));
+            filter: blur(60px);
+            animation: float 20s infinite alternate;
+        }
+        
+        .glowing-orb-left {
+            left: 5%;
+            top: 70%;
+            width: 50vmin;
+            height: 50vmin;
+            background: radial-gradient(circle, rgba(180,130,255,0.12), rgba(100,80,200,0.04));
+            filter: blur(50px);
+            animation: float 25s infinite alternate-reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            100% { transform: translate(-30px, -30px) scale(1.2); opacity: 0.7; }
+        }
+        
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle var(--duration) infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: var(--opacity); transform: scale(1.2); }
+        }
+        
+        .cosmic-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(10, 8, 25, 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 30px 20px;
+            border: 1px solid rgba(180, 150, 255, 0.3);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .your-logo {
+            max-width: 200px;
+            filter: drop-shadow(0 0 15px rgba(180, 150, 255, 0.6));
+        }
+        
+        .glyph-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .glyph {
+            font-size: 32px;
+            filter: drop-shadow(0 0 10px rgba(200, 170, 255, 0.8));
+            animation: glyphPulse 3s infinite alternate;
+        }
+        
+        @keyframes glyphPulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        h1 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            font-weight: 300;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, #ffffff, #d0b0ff, #b090ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #b0a0e0;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+        
+        /* Input Section */
+        .input-card {
+            background: rgba(10, 8, 25, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(180, 150, 255, 0.3);
+        }
+        
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-field {
+            flex: 2;
+            min-width: 200px;
+        }
+        
+        .input-field input {
+            width: 100%;
+            background: rgba(20, 18, 45, 0.8);
+            border: 1px solid #5a4a90;
+            border-radius: 60px;
+            padding: 16px 20px;
+            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .input-field input:focus {
+            outline: none;
+            border-color: #b090ff;
+            box-shadow: 0 0 15px rgba(176, 144, 255, 0.3);
+        }
+        
+        .search-btn {
+            background: linear-gradient(145deg, #2a2048, #1a1238);
+            border: 1px solid #8a6ad0;
+            border-radius: 60px;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e0d0ff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #3a2860, #221a48);
+            box-shadow: 0 5px 20px rgba(138, 106, 208, 0.3);
+        }
+        
+        .random-btn {
+            background: transparent;
+            border: 1px solid #6a5a90;
+            border-radius: 60px;
+            padding: 16px 24px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .random-btn:hover {
+            background: rgba(100, 80, 160, 0.3);
+        }
+        
+        /* Synchronicity Note */
+        .synchronicity-note {
+            background: rgba(138, 106, 208, 0.15);
+            border-radius: 24px;
+            padding: 18px;
+            margin-bottom: 30px;
+            border-left: 3px solid #b090ff;
+            font-size: 0.9rem;
+        }
+        
+        /* Result Card */
+        .result-card {
+            background: rgba(10, 8, 25, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 32px;
+            border: 1px solid rgba(180, 150, 255, 0.4);
+            overflow: hidden;
+            margin-bottom: 30px;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .result-card.show {
+            display: block;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-header {
+            padding: 25px 30px 15px;
+            border-bottom: 1px solid rgba(180, 150, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .number-display {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd966, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 8px;
+        }
+        
+        .angel-badge {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid #ffd966;
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+        }
+        
+        .result-content {
+            padding: 25px 30px;
+        }
+        
+        .meaning-section {
+            margin-bottom: 25px;
+        }
+        
+        .meaning-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffd966;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 3px solid #ffd966;
+            padding-left: 12px;
+        }
+        
+        .meaning-text {
+            color: #e0dcff;
+            line-height: 1.7;
+        }
+        
+        .dream-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .dream-section .meaning-title {
+            border-left-color: #b090ff;
+        }
+        
+        .where-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .affirmation {
+            background: linear-gradient(145deg, rgba(138, 106, 208, 0.2), rgba(100, 80, 160, 0.1));
+            border-radius: 20px;
+            padding: 18px;
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+            border: 1px solid rgba(176, 144, 255, 0.3);
+        }
+        
+        .jung-quote {
+            margin-top: 20px;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #a0a0c0;
+            text-align: center;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #6a5a90;
+            font-size: 0.75rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2048;
+        }
+        
+        @media (max-width: 650px) {
+            .input-group { flex-direction: column; }
+            .number-display { font-size: 2rem; letter-spacing: 4px; }
+            .result-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg">
+        <div class="glowing-orb"></div>
+        <div class="glowing-orb-left"></div>
+    </div>
+    <div class="star-field" id="starField"></div>
+    
+    <div class="cosmic-container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/qLvdSn6z/Green-Logo-Glow.png" alt="Logo" class="your-logo">
+            </div>
+            <div class="glyph-container">
+                <span class="glyph">🌀</span>
+                <span class="glyph">👁️</span>
+                <span class="glyph">✨</span>
+            </div>
+            <h1>ANGEL NUMBER DECODER</h1>
+            <div class="subtitle">✦ SYNCHRONICITY · DIVINE GUIDANCE · MESSAGES FROM THE ANGELS ✦</div>
+        </div>
+        
+        <div class="input-card">
+            <div class="input-group">
+                <div class="input-field">
+                    <input type="text" id="numberInput" placeholder="Enter any number (0-999) ..." maxlength="3">
+                </div>
+                <button class="search-btn" onclick="decodeNumber()">🔮 DECODE MESSAGE</button>
+                <button class="random-btn" onclick="randomNumber()">🎲 RANDOM ANGEL NUMBER</button>
+            </div>
+            <div class="synchronicity-note">
+                <strong>🌀 CARL JUNG ON SYNCHRONICITY:</strong> "Meaningful coincidences are not mere chance. When you see repeating numbers, the universe is speaking directly to you. Pay attention to where you were, what you were thinking, and how you felt — this is where your personal message lives."
+            </div>
+        </div>
+        
+        <div id="result" class="result-card"></div>
+        
+        <div class="footer">
+            <div>🌀 BASED ON DOREEN VIRTUE'S ANGEL NUMBERS · INTEGRATED WITH JUNGIAN SYNCHRONICITY  👁️</div>
+            <div class="footnote">Numbers 0-999 · Dream Interpretations · Where You See Them · Personalized Affirmations</div>
+          <div class="footnote">Copyright © 2026 Awakened Sways LLC</div>
+           <div class="footnote">All Rights Reserved</div>
+        </div>
+    </div>
 
+    <script>
+        // ==================== COMPLETE ANGEL NUMBER DATABASE ====================
+        // Based on Doreen Virtue's "Angel Numbers 101" with Jungian synchronicity integration
+        
+        const angelNumbers = {
+            // 0-9
+            0: { meaning: "God is speaking to you. A sign of the endless circle of Omega without beginning or end. Divine reassurance is being sent your way.", dream: "Seeing zero in dreams represents infinite potential, new beginnings, or feeling a divine presence watching over you.", where: "License plates, clocks, receipts, phone numbers — whenever you see 0, it's a reminder that you are never alone.", affirmation: "I am connected to the infinite source of love and wisdom. Divine guidance flows through me." },
+            1: { meaning: "Stay positive! Your thoughts are materializing rapidly. Focus only on what you truly desire, not on fears.", dream: "A single 1 in dreams often represents new beginnings, leadership, or a fresh start approaching in your waking life.", where: "Digital clocks, page numbers, house numbers — a sign that you're aligned with your highest path.", affirmation: "I am a co-creator with the universe. My positive thoughts manifest my dreams." },
+            2: { meaning: "Everything is working out for your highest good. Keep the faith and trust the process.", dream: "The number 2 in dreams symbolizes partnership, balance, and the need for harmony in your relationships.", where: "Times, dates, addresses — a gentle reminder that you are supported and guided.", affirmation: "I trust that everything is unfolding perfectly for my highest good." },
+            3: { meaning: "The ascended masters are with you, helping you stay positive and aligned with your highest purpose.", dream: "Seeing 3 in dreams indicates spiritual guidance, creative expression, and support from enlightened beings.", where: "Phone numbers, bills, clocks — the ascended masters are near.", affirmation: "I am guided and protected by ascended masters who love me unconditionally." },
+            4: { meaning: "The angels are surrounding you, offering love, protection, and guidance. You are not alone.", dream: "4 in dreams represents stability, foundation, and the presence of angels watching over you.", where: "Everywhere — a sign that angels are with you in this moment.", affirmation: "I am surrounded by loving angels who guide and protect me." },
+            5: { meaning: "A significant change is occurring, always for the better. Embrace transformation with open arms.", dream: "5 symbolizes change, freedom, and new adventures on the horizon in your dream state.", where: "Receipt totals, clocks, addresses — change is coming, trust it.", affirmation: "I welcome positive change and growth into my life with grace." },
+            6: { meaning: "Don't worry about material matters. Release financial fears to the angels and trust that your needs are met.", dream: "6 in dreams relates to home, family, and material security — a sign to balance earthly and spiritual concerns.", where: "Bills, receipts, times — a reminder that Spirit provides.", affirmation: "All my material needs are met abundantly. I release all worry." },
+            7: { meaning: "You are on the right path! Divine magic is supporting you and opening doors of opportunity.", dream: "7 is the number of spiritual awakening, intuition, and divine guidance appearing in dreams.", where: "License plates, clocks, phone numbers — confirmation you're exactly where you need to be.", affirmation: "I am on the right path. Miracles are unfolding in my life." },
+            8: { meaning: "Abundance and prosperity are flowing to you. The infinite loops signify endless flow of money, time, and resources.", dream: "8 in dreams represents financial abundance, success, and the law of cause and effect (karma).", where: "Prices, totals, times — prosperity is coming.", affirmation: "I am a magnet for abundance. Prosperity flows to me effortlessly." },
+            9: { meaning: "Get to work on your life purpose! You've completed the prerequisites. Stop procrastinating and take action.", dream: "9 symbolizes completion, humanitarian service, and the fulfillment of your soul's mission.", where: "Times, dates, numbers — a call to step into your purpose.", affirmation: "I am ready and willing to fulfill my divine life purpose." },
+            
+            // 10-99 (key sequences)
+            11: { meaning: "Stay positive! Your thoughts are manifesting instantly. Focus only on what you desire.", dream: "Seeing 11 in dreams indicates a spiritual awakening or that your prayers are being answered rapidly.", where: "Clocks, addresses, receipts — a powerful manifestation portal opening.", affirmation: "My thoughts create my reality. I choose to focus on what I love." },
+            22: { meaning: "Keep the faith! The angels see the positive results of your prayers. Be patient while details are worked out.", dream: "22 in dreams represents the Master Builder energy — you're creating something lasting and meaningful.", where: "Time 22:22, addresses — a sign to trust divine timing.", affirmation: "I trust divine timing. Everything is working out perfectly." },
+            33: { meaning: "You have a strong connection with ascended masters who have answered your prayers.", dream: "33 symbolizes the Master Teacher energy — spiritual guidance is coming through strongly.", where: "Repeated sequences — ascended masters are near.", affirmation: "I am connected to the highest spiritual guidance." },
+            44: { meaning: "Angels are everywhere around you! You are completely loved, supported, and protected.", dream: "44 is a powerful angelic sign in dreams — protection and guidance are amplified.", where: "License plates, clocks, phone numbers — angelic presence confirmed.", affirmation: "Angels surround me with unconditional love and protection." },
+            55: { meaning: "Big, positive changes are imminent. The worst is now behind you.", dream: "55 represents major life transformation — you're shedding the old to welcome the new.", where: "Times, receipts — prepare for exciting changes.", affirmation: "I embrace positive change with courage and excitement." },
+            66: { meaning: "Spiritualize your thinking. Focus on love, and everything else falls into place.", dream: "66 in dreams relates to balancing material and spiritual concerns — find harmony.", where: "Repeating numbers — a call to raise your vibration.", affirmation: "I choose love over fear in every moment." },
+            77: { meaning: "Keep up the great work! Everything you're doing right now has the Midas touch.", dream: "77 symbolizes spiritual mastery and alignment — you're on the right track.", where: "Clocks, receipts — confirmation you're aligned.", affirmation: "I am in perfect alignment with my highest path." },
+            88: { meaning: "You have the Midas touch. Everything you do turns to gold. Financial abundance is flowing.", dream: "88 represents infinite abundance and financial flow in dreams.", where: "Totals, times — abundance is yours.", affirmation: "I am open to receiving infinite abundance in all forms." },
+            99: { meaning: "This is a wake-up call! Complete old chapters and get to work on your life purpose.", dream: "99 symbolizes the completion of a significant cycle and the beginning of your soul's mission.", where: "Times, dates — time to step into purpose.", affirmation: "I am ready to fulfill my soul's purpose with joy and passion." },
+            111: { meaning: "Your thoughts are manifesting instantly. Keep your mindset focused on your desires.", dream: "111 is a powerful spiritual awakening sign — pay attention to your thoughts and feelings.", where: "Clocks, receipts, addresses — manifestation portal open.", affirmation: "I am a powerful manifestor. I create my reality with intention." },
+            222: { meaning: "Trust that everything is working out exactly as it's supposed to, with Divine blessings.", dream: "222 represents balance, harmony, and trust in the process — your prayers are being heard.", where: "Times, license plates — a sign to have faith.", affirmation: "I trust the Divine plan for my life. Everything is unfolding perfectly." },
+            333: { meaning: "You are surrounded by ascended masters who are guiding and protecting you.", dream: "333 symbolizes the presence of ascended masters and spiritual teachers in your dream state.", where: "Repeated sequences — spiritual support is near.", affirmation: "I am guided and protected by ascended masters." },
+            444: { meaning: "Angels are everywhere around you! You are completely loved and supported.", dream: "444 is a powerful angelic sign — you're being watched over and protected.", where: "Everywhere — angels are with you.", affirmation: "Angels surround me with their loving presence. I am safe." },
+            555: { meaning: "Big, positive changes are occurring. Release the old and welcome the new.", dream: "555 represents major life transformation — you're entering a new chapter.", where: "Clocks, times — change is coming, embrace it.", affirmation: "I welcome transformation and growth into my life." },
+            666: { meaning: "Your thoughts are too focused on material illusions. Raise your thoughts spiritually.", dream: "666 in dreams is a call to balance spiritual and material concerns — return to center.", where: "Receipts, numbers — a gentle reminder to refocus.", affirmation: "I release all worry and trust in divine abundance." },
+            777: { meaning: "You are on the right path! Divine magic is supporting you and opening doors.", dream: "777 symbolizes spiritual alignment and miracles — you're exactly where you need to be.", where: "Clocks, addresses — confirmation you're aligned.", affirmation: "I am on the right path. Miracles are unfolding." },
+            888: { meaning: "You have the Midas touch! Financial abundance is flowing to you right now.", dream: "888 represents infinite abundance and financial blessings — open your arms to receive.", where: "Prices, totals — abundance is yours.", affirmation: "I am open to receiving infinite abundance." },
+            999: { meaning: "This is a wake-up call! Complete old chapters and begin your life purpose work now.", dream: "999 symbolizes the completion of a significant life cycle — new beginnings await.", where: "Times, dates — time to step into purpose.", affirmation: "I am ready to fulfill my divine life purpose." }
+        };
+        
+        // Generate all numbers 0-999 (filling gaps with custom logic)
+        function generateAllAngelNumbers() {
+            for (let i = 0; i <= 999; i++) {
+                if (!angelNumbers[i]) {
+                    const digits = String(i).split('').map(Number);
+                    const sum = digits.reduce((a, b) => a + b, 0);
+                    const reduced = sum > 9 ? String(sum).split('').reduce((a, b) => a + parseInt(b), 0) : sum;
+                    
+                    // Create meaning based on sum and repetition
+                    let meaning = "";
+                    let dream = "";
+                    let where = "";
+                    let affirmation = "";
+                    
+                    if (digits.every(d => d === digits[0])) {
+                        // Repeating numbers (like 111, 222, 333, 444, 555, 666, 777, 888, 999)
+                        if (angelNumbers[digits[0] * 111]) {
+                            meaning = angelNumbers[digits[0] * 111].meaning;
+                            dream = angelNumbers[digits[0] * 111].dream;
+                            where = angelNumbers[digits[0] * 111].where;
+                            affirmation = angelNumbers[digits[0] * 111].affirmation;
+                        }
+                    } else if (digits.length === 3 && digits[0] === digits[1]) {
+                        // First two repeat (like 112, 113)
+                        const base = angelNumbers[digits[0] * 11] || angelNumbers[digits[0]];
+                        meaning = `${base ? base.meaning.split('.')[0] : "Your angels are sending you encouragement."} The number ${digits[2]} brings additional energy of ${getNumberWord(digits[2])}.`;
+                        dream = `Seeing ${i} in dreams combines the stability of repeating ${digits[0]}s with the ${getNumberWord(digits[2])} energy of ${digits[2]}.`;
+                        where = `You may see ${i} on clocks, receipts, or addresses when you need both stability and ${getNumberWord(digits[2]).toLowerCase()}.`;
+                        affirmation = `I embrace the stability of ${digits[0]} and the ${getNumberWord(digits[2]).toLowerCase()} of ${digits[2]}.`;
+                    } else if (digits.length === 3 && digits[1] === digits[2]) {
+                        // Last two repeat (like 122, 133)
+                        const base = angelNumbers[digits[1] * 11] || angelNumbers[digits[1]];
+                        meaning = `The energy of ${digits[0]} (${getNumberWord(digits[0])}) leads to the amplified vibration of ${digits[1]} (${getNumberWord(digits[1])}${digits[1] === digits[2] ? " amplified" : ""}). ${base ? base.meaning.split('.')[0] : "Your angels are supporting this transition."}`;
+                        dream = `${i} in dreams symbolizes moving from ${getNumberWord(digits[0]).toLowerCase()} energy into the amplified vibration of ${getNumberWord(digits[1])}.`;
+                        where = `Watch for ${i} when you're in transition between phases of life.`;
+                        affirmation = `I move gracefully from ${getNumberWord(digits[0]).toLowerCase()} into the abundant energy of ${getNumberWord(digits[1])}.`;
+                    } else if (digits.length === 3 && digits[0] === digits[2]) {
+                        // First and last repeat (like 121, 131)
+                        meaning = `The number ${i} reminds you that ${getNumberWord(digits[0])} is your foundation, with ${getNumberWord(digits[1])} as your path, returning to ${getNumberWord(digits[0])} as your outcome.`;
+                        dream = `Dreams showing ${i} suggest a journey from ${getNumberWord(digits[0]).toLowerCase()} through ${getNumberWord(digits[1]).toLowerCase()} back to ${getNumberWord(digits[0]).toLowerCase()}.`;
+                        where = `This sequence appears when you're completing cycles and returning to your core truth.`;
+                        affirmation = `I stay true to myself (${getNumberWord(digits[0])}) while exploring ${getNumberWord(digits[1]).toLowerCase()}.`;
+                    } else {
+                        // Regular number
+                        const base = angelNumbers[reduced] || angelNumbers[sum] || angelNumbers[digits[0]];
+                        meaning = `The angels are guiding you through the energies of ${i}. ${base ? base.meaning.split('.')[0] : "Trust that you are supported and guided."} Each digit carries its own vibration, blending into a unique message for you.`;
+                        dream = `When ${i} appears in your dreams, consider what each digit means to you personally. The sum reduces to ${reduced}, which brings ${getNumberWord(reduced).toLowerCase()} energy.`;
+                        where = `${i} may appear on clocks, receipts, or anywhere numbers appear — always a sign to pay attention to your current thoughts and feelings.`;
+                        affirmation = `I am open to the unique guidance this moment brings.`;
+                    }
+                    
+                    angelNumbers[i] = { meaning, dream, where, affirmation };
+                }
+            }
+        }
+        
+        function getNumberWord(n) {
+            const words = {
+                0: "infinite potential",
+                1: "new beginnings and leadership",
+                2: "balance and partnership",
+                3: "creativity and expression",
+                4: "stability and foundation",
+                5: "freedom and change",
+                6: "harmony and responsibility",
+                7: "spiritual awakening",
+                8: "abundance and power",
+                9: "completion and service"
+            };
+            return words[n] || "divine guidance";
+        }
+        
+        function decodeNumber() {
+            let input = document.getElementById('numberInput').value.trim();
+            if (!input) {
+                alert("Please enter a number to decode.");
+                return;
+            }
+            
+            // Parse number
+            let num = parseInt(input, 10);
+            if (isNaN(num)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+            
+            // Ensure 0-999 range
+            if (num < 0) num = Math.abs(num);
+            if (num > 999) {
+                // For numbers > 999, break into chunks
+                const str = String(num);
+                const chunks = [];
+                for (let i = 0; i < str.length; i += 3) {
+                    chunks.push(parseInt(str.substr(i, 3), 10));
+                }
+                if (chunks.length > 1) {
+                    showMultiDigitResult(chunks);
+                    return;
+                }
+            }
+            
+            // Ensure number exists in database
+            generateAllAngelNumbers();
+            const data = angelNumbers[num] || angelNumbers[0];
+            
+            // Get the number's sum for additional insight
+            const digits = String(num).split('').map(Number);
+            const sum = digits.reduce((a, b) => a + b, 0);
+            const reducedSum = sum > 9 ? String(sum).split('').reduce((a, b) => a + parseInt(b), 0) : sum;
+            const reducedData = angelNumbers[reducedSum] || angelNumbers[0];
+            
+            const html = `
+                <div class="result-header">
+                    <div class="number-display">${num}</div>
+                    <div class="angel-badge">✦ ANGEL NUMBER ✦</div>
+                </div>
+                <div class="result-content">
+                    <div class="meaning-section">
+                        <div class="meaning-title">🔮 DIVINE MESSAGE</div>
+                        <div class="meaning-text">${data.meaning}</div>
+                    </div>
+                    
+                    <div class="dream-section">
+                        <div class="meaning-title">💭 IN YOUR DREAMS</div>
+                        <div class="meaning-text">${data.dream}</div>
+                    </div>
+                    
+                    <div class="where-section">
+                        <div class="meaning-title">👁️ WHERE YOU SEE IT</div>
+                        <div class="meaning-text">${data.where}</div>
+                        <div style="margin-top: 12px; padding: 10px; background: rgba(255,215,0,0.1); border-radius: 16px;">
+                            <strong>✨ CARL JUNG'S SYNCHRONICITY INSIGHT:</strong> "This number appeared when you were thinking about ${document.getElementById('numberInput').value ? "something meaningful to you" : "your current situation"}. 
+                            The universe speaks in patterns. What were you feeling when you saw this number? That is where your personal message lives."
+                        </div>
+                    </div>
+                    
+                    ${digits.length > 1 ? `
+                    <div style="background: rgba(0,0,0,0.25); border-radius: 16px; padding: 15px; margin: 15px 0;">
+                        <strong>🔢 NUMEROLOGICAL BREAKDOWN:</strong> ${num} = ${digits.join(' + ')} = ${sum} ${sum > 9 ? `= ${String(sum).split('').join(' + ')} = ${reducedSum}` : ''}<br>
+                        <span style="color: #ffd966;">The reduced energy of ${reducedSum} brings ${getNumberWord(reducedSum).toLowerCase()} to your message.</span>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="affirmation">
+                        <strong>✨ AFFIRMATION FOR THIS MESSAGE:</strong><br>
+                        "${data.affirmation}"
+                    </div>
+                    
+                    <div class="jung-quote">
+                        <strong>🌀 JUNGIAN SYNCHRONICITY:</strong> "Meaningful coincidences are not chance. When you notice numbers repeating, your unconscious is trying to communicate. 
+                        The number ${num} is a bridge between your inner world and the outer reality. Pay attention to what you were thinking — that's where the message lives."
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('result').innerHTML = html;
+            document.getElementById('result').classList.add('show');
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        function showMultiDigitResult(chunks) {
+            generateAllAngelNumbers();
+            let html = `
+                <div class="result-header">
+                    <div class="number-display">${chunks.join(' ')}</div>
+                    <div class="angel-badge">✦ MULTI-PART MESSAGE ✦</div>
+                </div>
+                <div class="result-content">
+                    <div class="meaning-section">
+                        <div class="meaning-title">🔮 YOUR COMPLETE MESSAGE</div>
+                        <div class="meaning-text">Your angel number is composed of multiple sequences. Here's what each part means:</div>
+                    </div>
+            `;
+            
+            for (let i = 0; i < chunks.length; i++) {
+                const chunk = chunks[i];
+                const data = angelNumbers[chunk] || angelNumbers[0];
+                html += `
+                    <div style="background: rgba(138, 106, 208, 0.15); border-radius: 20px; padding: 18px; margin: 15px 0; border-left: 3px solid #ffd966;">
+                        <strong style="color: #ffd966; font-size: 1.2rem;">${chunk}</strong><br>
+                        ${data.meaning.split('.')[0]}.
+                    </div>
+                `;
+            }
+            
+            html += `
+                    <div class="affirmation" style="margin-top: 20px;">
+                        <strong>✨ PUTTING IT TOGETHER:</strong><br>
+                        The angels are speaking to you through multiple channels. Trust that this message is uniquely for you. Your thoughts at the moment you saw these numbers hold the key to their personal meaning.
+                    </div>
+                    <div class="jung-quote">
+                        <strong>🌀 CARL JUNG ON SYNCHRONICITY:</strong> "The larger the pattern, the more significant the synchronicity. When multiple numbers appear together, the universe is amplifying its message. What were you thinking? That's where your answer lies."
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('result').innerHTML = html;
+            document.getElementById('result').classList.add('show');
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        function randomNumber() {
+            const num = Math.floor(Math.random() * 1000);
+            document.getElementById('numberInput').value = num;
+            decodeNumber();
+        }
+        
+        function generateStars() {
+            const field = document.getElementById('starField');
+            if (!field) return;
+            field.innerHTML = '';
+            for (let i = 0; i < 120; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 2.5 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+                star.style.setProperty('--opacity', `${Math.random() * 0.5 + 0.2}`);
+                field.appendChild(star);
+            }
+        }
+        
+        // Initialize
+        generateAllAngelNumbers();
+        generateStars();
+        
+        // Enter key support
+        document.getElementById('numberInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') decodeNumber();
+        });
+    </script>
+</body>
+</html>
